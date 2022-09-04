@@ -7,8 +7,13 @@ import abiInterface  from './../public/artifacts/contracts/Token.sol/Token.json'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+
+  // Staic Variables
+
   const[message,setMessage]= useState("")
   const contractAddress = "0xF050F4acB88a375F41D49b8Bd4cEb692D01dab83"
+
+//Get the Toekn Name 
   const getTokenName = async ()=>{
     if(typeof window.ethereum !=="undefined"){
       let contract
