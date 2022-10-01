@@ -1,0 +1,742 @@
+
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>BEP20 Token Generator</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <style>
+      body,
+      h1,
+      h5 {
+        font-family: 'Cairo', sans-serif;
+      }
+
+      body,
+      html {
+        height: 100%;
+        direction: rtl;
+        font-family: 'Cairo', sans-serif;
+      }
+
+      .bgimg {
+        background-image: url('https://i.pinimg.com/originals/b1/17/0e/b1170e74d9b4248eb188c155801d0973.jpg');
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+      }
+    </style>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="keywords"
+      content="tokenmint, generate tokens, BEP20, ethereum"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="author" content="Merkle Blue" />
+    <meta name="msvalidate.01" content="74266D4D4D2C6457C6D39667778F6EE8" />
+    <meta
+      name="description"
+      content="Create your own Fixed Supply or MyToken BEP20 token. No coding needed. Custom token name, symbol, and supply. Verified and published contract source code."
+    />
+    <link rel="canonical" href="https://cppapps.herokuapp.com" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TokenMint" />
+    <meta
+      property="og:title"
+      content="BEP20 Token Generator, Create BEP20 Tokens - TokenMint"
+    />
+    <meta
+      property="og:description"
+      content="Create your own Fixed Supply or MyToken BEP20 token. No coding needed. Custom token name, symbol, and supply. Verified and published contract source code."
+    />
+    <meta
+      property="og:image"
+      content="https://cppapps.herokuapp.compromo/product-image.png"
+    />
+    <meta property="og:url" content="https://cppapps.herokuapp.com" />
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="BEP20 Token Generator, Create BEP20 Tokens - TokenMint"
+    />
+    <meta
+      name="twitter:description"
+      content="Create your own Fixed Supply or MyToken BEP20 token. No coding needed. Custom token name, symbol, and supply. Verified and published contract source code."
+    />
+    <meta
+      name="twitter:image"
+      content="https://cppapps.herokuapp.compromo/product-image.png"
+    />
+    <meta name="twitter:url" content="https://cppapps.herokuapp.com" />
+  </head>
+
+  <body>
+    <div
+      class="bgimg w3-display-container w3-text-white"
+      style="direction: ltr;"
+    >
+      <div style="padding-top: 5%;">
+        <div class="w3-quarter">
+          <br />
+        </div>
+        <div class="w3-quarter">
+          <h1>
+            With 0.15 BNB build your token with BEP20 Standard on Binance Smart
+            chain.
+            <!-- <a href="../bep20/index.html">this is the main website for Main Network</a> -->
+          </h1>
+        </div>
+        <div class="w3-quarter">
+          <div class="create_panel">
+            <!-- <details>
+                    <summary class="toggle">كيف أختار اسمًا مميزًا؟ </summary>
+                    <div class="info">
+                        يمكنك اختيار أي اسم تريد! سيظهر في Etherscan ويضاف إلى العقد الذكي المميز. اختر شيئًا لا يُنسى يصف بدقة علامتك التجارية أو استخدامك. </div>
+                </details> -->
+            <label for="token_name">Name</label>
+            <input
+              class="w3-input"
+              name="token_name"
+              id="token_name"
+              maxlength="20"
+              type="text"
+              placeholder="Name"
+            />
+          </div>
+          <div class="create_panel">
+            <details>
+              <summary class="toggle">What is Symbol?</summary>
+              <div class="info">Bitcoin uses BTC and ethereum uses ETH.</div>
+            </details>
+            <label for="symbol">Symbol 3-6 Character</label>
+            <input
+              class="w3-input"
+              name="symbol"
+              maxlength="6"
+              id="symbol"
+              type="text"
+              placeholder="eg. ABC"
+            />
+            <br />
+          </div>
+          <div class="create_panel">
+            <!-- <details>
+                    <summary class="toggle">ماذا يعني إجمالي العرض؟ </summary>
+                    <div class="info">
+                        عندما تقوم بإنشاء الرموز الخاصة بك ، فإنك تضع حدًا للعدد الإجمالي الذي يمكن أن يوجد - يُعرف هذا الحد باسم hard cap. يمكن أن يتراوح إجمالي العرض لديك من 1 توكن حتى 100 مليار توكن. </div>
+                </details> -->
+            <label for="total">
+              Total supply (up to 100 billion - 100,000,000,000,000)
+            </label>
+            <input
+              class="w3-input"
+              name="total"
+              id="total"
+              type="number"
+              min="1"
+              max="100000000000"
+              step="1"
+              onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+              placeholder="100000000000"
+              value="100000000000"
+            />
+            <br />
+          </div>
+          <div class="create_panel">
+            <!-- <details>
+                    <summary class="toggle">ما هي المنازل العشرية؟ </summary>
+                    <div class="info">
+                        تمامًا مثل الدولار أو اليورو ، يمكن تقسيم توكنات BEP20 إلى وحدات أصغر. يمكن تقسيم الدولار إلى 100 سنت ، لذلك يتكون من منزلتين عشريتين. <br> <br> يمكن أن تحتوي الرموز المميزة الخاصة بك على ما يصل إلى 18 منزلاً عشريًا (والتي تحتوي
+                        عليها معظم الرموز المميزة). يمكنك حتى تختار عدم وجود أرقام عشرية ، مما يعني أنه لا يمكن تقسيم الرموز المميزة! ومع ذلك ، فإننا نوصيك في معظم الحالات باستخدام الكسور العشرية الـ 18 الافتراضية. </div>
+                </details> -->
+            <label for="decimals">Decimal 18 Max</label>
+            <input
+              class="w3-input"
+              name="decimals"
+              id="decimals"
+              type="number"
+              min="1"
+              max="18"
+              step="1"
+              onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+              placeholder="18"
+              value="18"
+            />
+            <br />
+          </div>
+          <br />
+          <div>
+            <button onclick="start()" class="w3-btn w3-green">
+              Create Token
+            </button>
+          </div>
+          <br />
+        </div>
+
+        <div class="w3-quarter">
+          <br />
+        </div>
+      </div>
+
+      <div class="w3-display-topright w3-container w3-xlarge">
+        <p><a href="/" class="w3-button w3-black">Home</a></p>
+        <p><a href="/bep20/indexar.html" class="w3-button w3-black">عربي</a></p>
+        <button onclick="addNetwork()" class="w3-btn w3-yellow">
+          Add BSC Network
+        </button>
+      </div>
+      <div style="padding-top: 5%;" class="w3-content">
+        <center>
+          <div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <h1>Other Tokens Created in the system</h1>
+            <table id="table" border="1">
+              <!-- The Row Number 0 -->
+              <tr>
+                <th>Total Supply</th>
+                <th>Name</th>
+                <th>Symbol</th>
+                <th>Decimal</th>
+                <th>Owner's address</th>
+                <th>Coin Address (BEP20) contract</th>
+              </tr>
+            </table>
+          </div>
+        </center>
+      </div>
+      <div class="w3-display-bottomright w3-container">
+        <p>
+          Made by
+          <a href="/" target="_blank">Cpp Apps</a>
+        </p>
+      </div>
+    </div>
+  </body>
+  <!-- <script src="https://polygonscan.com/assets/js/custom/web3-utils.min.js"></script>
+<script src="https://polygonscan.com/assets/js/custom/web3-eth.min.js"></script>
+<script src="https://polygonscan.com/assets/js/custom/web3-providers-http.min.js"></script> -->
+  <script type="text/javascript">
+    if (window.innerWidth < 500) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Only on PC',
+      })
+    }
+    async function loadWeb3() {
+      window.addEventListener('load', function () {
+        if (typeof web3 !== 'undefined') {
+          console.log('web3 is enabled')
+          if (web3.currentProvider.isMetaMask === true) {
+            console.log('MetaMask is active')
+            if (window.ethereum) {
+              // use MetaMask's provider
+              window.web3 = new Web3(window.ethereum)
+              window.ethereum.enable() // get permission to access accounts
+
+              // detect Metamask account change
+              window.ethereum.on('accountsChanged', function (accounts) {
+                console.log('accountsChanges', accounts)
+              })
+
+              // detect Network account change
+              window.ethereum.on('networkChanged', function (networkId) {
+                console.log('networkChanged', networkId)
+                location.reload()
+              })
+            }
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Need Metamask',
+              text: 'Download metamask!',
+              footer: '<a href="https://metamask.io/">   metamask</a>',
+            })
+          }
+        } else {
+          console.log('web3 is not found')
+        }
+      })
+      console.log('loaded 1')
+      if (window.ethereum) {
+        window.web3 = new Web3(window.ethereum)
+        window.ethereum.enable()
+      }
+    }
+
+    async function loadContract() {
+      return await new window.web3.eth.Contract(
+        [
+          {
+            anonymous: false,
+            inputs: [
+              {
+                indexed: true,
+                internalType: 'address',
+                name: 'to',
+                type: 'address',
+              },
+              {
+                indexed: false,
+                internalType: 'uint256',
+                name: 'amount',
+                type: 'uint256',
+              },
+            ],
+            name: 'Withdraw',
+            type: 'event',
+          },
+          {
+            constant: false,
+            inputs: [
+              {
+                internalType: 'uint256',
+                name: 'total',
+                type: 'uint256',
+              },
+              {
+                internalType: 'string',
+                name: 'name',
+                type: 'string',
+              },
+              {
+                internalType: 'string',
+                name: 'symbol',
+                type: 'string',
+              },
+              {
+                internalType: 'uint8',
+                name: 'decimals',
+                type: 'uint8',
+              },
+              {
+                internalType: 'string',
+                name: 'netwrok',
+                type: 'string',
+              },
+            ],
+            name: 'createToken',
+            outputs: [],
+            payable: true,
+            stateMutability: 'payable',
+            type: 'function',
+          },
+          {
+            inputs: [],
+            payable: false,
+            stateMutability: 'nonpayable',
+            type: 'constructor',
+          },
+          {
+            constant: false,
+            inputs: [
+              {
+                internalType: 'address payable',
+                name: 'to',
+                type: 'address',
+              },
+              {
+                internalType: 'uint256',
+                name: 'amount',
+                type: 'uint256',
+              },
+            ],
+            name: 'withdrawTo',
+            outputs: [
+              {
+                internalType: 'bool',
+                name: '',
+                type: 'bool',
+              },
+            ],
+            payable: false,
+            stateMutability: 'nonpayable',
+            type: 'function',
+          },
+          {
+            constant: true,
+            inputs: [
+              {
+                internalType: 'address',
+                name: '',
+                type: 'address',
+              },
+            ],
+            name: 'adresess',
+            outputs: [
+              {
+                internalType: 'uint256',
+                name: 'total',
+                type: 'uint256',
+              },
+              {
+                internalType: 'string',
+                name: 'name',
+                type: 'string',
+              },
+              {
+                internalType: 'string',
+                name: 'symbol',
+                type: 'string',
+              },
+              {
+                internalType: 'uint8',
+                name: 'decimals',
+                type: 'uint8',
+              },
+              {
+                internalType: 'address',
+                name: 'owner',
+                type: 'address',
+              },
+              {
+                internalType: 'contract BEP20Token',
+                name: 'contractAddress',
+                type: 'address',
+              },
+              {
+                internalType: 'string',
+                name: 'netwrok',
+                type: 'string',
+              },
+            ],
+            payable: false,
+            stateMutability: 'view',
+            type: 'function',
+          },
+          {
+            constant: true,
+            inputs: [],
+            name: 'getBalance',
+            outputs: [
+              {
+                internalType: 'uint256',
+                name: '',
+                type: 'uint256',
+              },
+            ],
+            payable: false,
+            stateMutability: 'view',
+            type: 'function',
+          },
+          {
+            constant: true,
+            inputs: [],
+            name: 'getTokens',
+            outputs: [
+              {
+                components: [
+                  {
+                    internalType: 'uint256',
+                    name: 'total',
+                    type: 'uint256',
+                  },
+                  {
+                    internalType: 'string',
+                    name: 'name',
+                    type: 'string',
+                  },
+                  {
+                    internalType: 'string',
+                    name: 'symbol',
+                    type: 'string',
+                  },
+                  {
+                    internalType: 'uint8',
+                    name: 'decimals',
+                    type: 'uint8',
+                  },
+                  {
+                    internalType: 'address',
+                    name: 'owner',
+                    type: 'address',
+                  },
+                  {
+                    internalType: 'contract BEP20Token',
+                    name: 'contractAddress',
+                    type: 'address',
+                  },
+                  {
+                    internalType: 'string',
+                    name: 'netwrok',
+                    type: 'string',
+                  },
+                ],
+                internalType: 'struct contractsHolder.token[]',
+                name: '',
+                type: 'tuple[]',
+              },
+            ],
+            payable: false,
+            stateMutability: 'view',
+            type: 'function',
+          },
+          {
+            constant: true,
+            inputs: [
+              {
+                internalType: 'uint256',
+                name: '',
+                type: 'uint256',
+              },
+            ],
+            name: 'tokencounts',
+            outputs: [
+              {
+                internalType: 'address',
+                name: '',
+                type: 'address',
+              },
+            ],
+            payable: false,
+            stateMutability: 'view',
+            type: 'function',
+          },
+        ],
+        '0xAa05A6d0AfBCDF08C458b48D9E7C2d7108f7791b',
+      )
+    }
+
+    async function getCurrentAccount() {
+      const accounts = await window.web3.eth.getAccounts()
+      return accounts[0]
+    }
+
+    async function load() {
+      await loadWeb3()
+      if (window.ethereum.networkVersion == 56) {
+        window.contract = await loadContract()
+        const account = await getCurrentAccount()
+        gettokens(account)
+      } else {
+        // Swal.fire({
+        //     icon: 'info',
+        //     title: '',
+        //     text: 'Make sure you are connected to Binance Smart Chain Network'
+        // });
+        window.contract = await loadContract()
+        const account = await getCurrentAccount()
+        gettokens(account)
+        if (window.ethereum.networkVersion == 97) {
+          Swal.fire({
+            title: 'Network Detection',
+            text:
+              'Your Metamask is Connected to BSC test Chain, Do you wanna go to test BSC page token generation?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = '/bep20test/'
+            }
+          })
+        } else if (window.ethereum.networkVersion == 3) {
+          Swal.fire({
+            title: 'Network Detection',
+            text:
+              'Your Metamask is Connected to ethereum test Chain, Do you wanna go to ethereum test Chain page token generation?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = '/erc20test/'
+            }
+          })
+        }
+        // else {
+        //     alert("Change your Network")
+        // }
+
+        //alert(window.ethereum.networkVersion)
+        // window.contract = await loadContractBeP();
+        // const account = await getCurrentAccount();
+        // gettokens(account);
+      }
+      //document.getElementById('input1').value=message;
+    }
+
+    async function gettokens(account) {
+      console.log(window.contract)
+      console.log(window.contract.methods)
+
+      const message = await window.contract.methods.getTokens().call({
+        from: account,
+      })
+      console.log(message)
+      console.log('Do')
+      var table = document.getElementById('table')
+
+      // rows
+      for (var i = 0; i < message.length; i++) {
+        // create a new row
+        var newRow = table.insertRow(table.length)
+        for (var j = 0; j < message[i].length; j++) {
+          // create a new cell
+          var cell = newRow.insertCell(j)
+
+          // add value to the cell
+          var content = message[i][j].substring(0, 20)
+          cell.innerHTML = content
+          console.log(i, j)
+          if (j == 5) {
+            cell.innerHTML =
+              message[i][j] +
+              "</br><a href='/bep20/mytokenen.html?id=" +
+              message[i][j] +
+              "' >Manage Token </a>"
+          }
+        }
+      }
+
+      console.log(message)
+    }
+    async function getBalance(account) {
+      const message = await window.contract.methods.balanceOf(account).call({
+        from: account,
+      })
+      const name = await window.contract.methods.name().call({
+        from: account,
+      })
+      const symbol = await window.contract.methods.symbol().call({
+        from: account,
+      })
+      console.log(message)
+      document.getElementById('amount').innerHTML = message
+      document.getElementById('name').innerHTML = name
+      document.getElementById('symbol').innerHTML = symbol
+    }
+
+    async function start() {
+      var network = web3.eth.net.getNetworkType()
+      var css = '* { cursor: wait; !important}'
+      var style = document.createElement('style')
+      style.type = 'text/css'
+      style.id = 'mywaitcursorstyle'
+      style.appendChild(document.createTextNode(css))
+      document.head.appendChild(style)
+      const account = await getCurrentAccount()
+      var token_name = document.getElementById('token_name').value
+      var symbol = document.getElementById('symbol').value
+      var total = document.getElementById('total').value
+      var decimals = document.getElementById('decimals').value
+      const message = await window.contract.methods
+        .createToken(total, token_name, symbol, decimals, network)
+        .send({
+          from: account,
+          value: 0.15 * 10 ** 18,
+        })
+      const accountContract = await window.contract.methods
+        .adresess(account)
+        .call({
+          from: account,
+        })
+
+      console.log(message)
+      console.log(accountContract.contractAddress)
+      Swal.fire({
+        title: 'Token Management ',
+        text: 'Got To manage your Token?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href =
+            '/bep20/mytokenen.html?id=' + accountContract.contractAddress
+        }
+      })
+    }
+
+    load()
+    async function addNetwork() {
+      var network = 0
+      network = window.ethereum.networkVersion
+      netID = network.toString()
+      var params
+      // if (netID == "56") {
+      //     alert("BSC Network has already been added to Metamask.");
+      //     return;
+      // } else {
+      params = [
+        {
+          chainId: '0x38',
+          chainName: 'Smart chain Mainnet',
+          nativeCurrency: {
+            name: 'BNB',
+            symbol: 'BNB',
+            decimals: 18,
+          },
+          rpcUrls: ['https://bsc-dataseed.binance.org/'],
+          blockExplorerUrls: ['https://bscscan.org/'],
+        },
+      ]
+      // }
+      window.ethereum
+        .request({ method: 'wallet_addEthereumChain', params })
+        .then(() => console.log('Success'))
+        .catch((error) => console.log('Error', error.message))
+    }
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-4PLYPL9F1J"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || []
+
+    function gtag() {
+      dataLayer.push(arguments)
+    }
+    gtag('js', new Date())
+
+    gtag('config', 'G-4PLYPL9F1J')
+  </script>
+</html>

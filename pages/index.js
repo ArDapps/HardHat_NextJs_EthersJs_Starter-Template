@@ -7,7 +7,6 @@ import abiInterface  from './../public/artifacts/contracts/Token.sol/Token.json'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
-
   // Staic Variables
 
   const[message,setMessage]= useState("")
@@ -43,6 +42,7 @@ export default function Home() {
     }
 
 }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -54,6 +54,9 @@ export default function Home() {
         <button className='btn btn-danger' onClick={getTokenName}>Get Message</button>
       </div>
       <h3>{message}</h3>
+
+      <div className='p-5'>
+      </div>
 
     </div>
   )
